@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FCF Sports Club</title>
+  <link rel="stylesheet" href="css/style.css">
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  
+  <style>
+    table {
+        margin: 0 auto; 
+    }
+</style>
+<style>
+
+  table {
+      margin: 20px auto;
+      border-collapse: collapse;
+      width: 80%;
+  }
+  th, td {
+      padding: 10px;
+      text-align: center;
+  }
+  .edit-btn, .save-btn {
+      padding: 5px 10px;
+      margin: 0 5px;
+      cursor: pointer;
+  }
+  .edit-btn {
+      background-color: rgb(59, 68, 143);
+  }
+  .save-btn {
+      background-color: green;
+      color: white;
+  }
+</style>
+
+
+
+<style>
+
+  header {
+      position: fixed; 
+      top: 0; 
+      left: 0; 
+      right: 0; 
+      background-color: rgba(255, 255, 255, 0.9); 
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
+      z-index: 1000;
+  }
+
+  nav {
+      padding: 5px; 
+  }
+
+  #navbar {
+      list-style-type: none; 
+      padding: 0; 
+      margin: 0; 
+      display: flex;
+      justify-content: center; 
+  }
+
+  #navbar li {
+      margin: 0 15px; 
+  }
+
+  #navbar a {
+      text-decoration: none; 
+      color: #e3e3e3; 
+      font-weight: bold; 
+  }
+
+
+  body {
+      padding-top: 60px; 
+  }
+</style>
+
+
+</head>
+<body>
+
+  <header>
+    <nav>
+      <ul id="navbar">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#history">History</a></li>
+        <li><a href="#achievements">Achievements</a></li>
+        <li><a href="#players">Players</a></li>
+        <li><a href="#register">Register</a></li>
+        <li><a href="#photos">Photos</a></li> 
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section id="home">
+    <h1 style="font-size: 40px;">Welcome to Fire Cricket Fighter,Natore-(FCF)Sports Club</h1>
+    <img src="logo.jpg" alt="FCF Sports Club Logo" style="width: 120px; height: 120px; border-radius: 50%;">
+    <p style="color: rgb(211, 202, 18);font-size: 20px;">Join us and be part of a successful sports journey!</p>
+</section>
+
+
+  <section id="history">
+    <h2 style="background-color: rgb(96, 156, 53); color: rgb(0, 0, 0);">Club History</h2>
+    <p>FCF Club, established in 2011, is a cricket team based in Mirpara, Natore. The club has been a prominent part of the local cricket scene,
+       known for its competitive spirit and camaraderie. Key players like Alif, Shakkor, and Utsho have been instrumental in the team's success 
+       over the years. Their dedication and teamwork have made FCF a formidable presence in local cricket tournaments. The club continues to grow
+       and inspire young cricketers in the region.Many players from FCF Club have gone on to pursue careers in cricket at higher levels,
+        participating in district and regional competitions. The club is also known for grooming young talent, providing a platform 
+        for budding cricketers to showcase their skills. FCF Club's journey is marked by passion, teamwork, and a commitment to excellence in cricket.
+        The club is known for its team spirit and dedication to the game, with players often practicing in their free time to improve their skills. 
+        FCF Club's journey is a testament to the love for cricket in their community, inspiring younger
+         players to join and uphold its legacy. The team's camaraderie and commitment continue to make them a formidable side in local competitions.</p>
+  </section>
+
+  <section id="achievements">
+    <h2 style="background-color: rgb(53, 190, 105); color: rgb(0, 0, 0);padding: 10px; 
+    margin: 0 auto; 
+    width: 40%; 
+    border-radius: 5px;
+    text-align: center; ">Club Achievements</h2>
+    <p style="text-align: center;color: rgb(91, 8, 169);">Over the years, FCF has won numerous championships and titles...</p>
+    
+  
+    <table id="achievementsTable" border="1" cellpadding="10" cellspacing="0">
+      <thead>
+          <tr>
+              <th>No</th>
+              <th>Location</th>
+              <th>Date</th>
+              <th style="color: red;">Achievement</th>
+              <th>Actions</th>
+          </tr>
+      </thead>
+      <tbody>
+          <tr>
+              <td>1</td>
+              <td>Old Boys School</td>
+              <td>12th July 2021</td>
+              <td>Champion</td>
+              <td>
+                  <button class="edit-btn" onclick="editRow(this)">Edit</button>
+                  <button class="save-btn" style="display: none;" onclick="saveRow(this)">Save</button>
+              </td>
+          </tr>
+          <tr>
+              <td>2</td>
+              <td>New Boys School</td>
+              <td>2022</td>
+              <td>Champion</td>
+              <td>
+                  <button class="edit-btn" onclick="editRow(this)">Edit</button>
+                  <button class="save-btn" style="display: none;" onclick="saveRow(this)">Save</button>
+              </td>
+          </tr>
+          <tr>
+              <td>3</td>
+              <td>New Boys School</td>
+              <td>2024</td>
+              <td>Runners-Up</td>
+              <td>
+                  <button class="edit-btn" onclick="editRow(this)">Edit</button>
+                  <button class="save-btn" style="display: none;" onclick="saveRow(this)">Save</button>
+              </td>
+          </tr>
+          <tr>
+              <td>4</td>
+              <td>FCF Season 1</td>
+              <td>2023</td>
+              <td>Champion</td>
+              <td>
+                  <button class="edit-btn" onclick="editRow(this)">Edit</button>
+                  <button class="save-btn" style="display: none;" onclick="saveRow(this)">Save</button>
+              </td>
+          </tr>
+          <tr>
+              <td>5</td>
+              <td>Mohila MP Field</td>
+              <td>2024</td>
+              <td>Champion</td>
+              <td>
+                  <button class="edit-btn" onclick="editRow(this)">Edit</button>
+                  <button class="save-btn" style="display: none;" onclick="saveRow(this)">Save</button>
+              </td>
+          </tr>
+          <tr>
+              <td>6</td>
+              <td>Scout Field</td>
+              <td>2020</td>
+              <td>Runners-Up</td>
+              <td>
+                  <button class="edit-btn" onclick="editRow(this)">Edit</button>
+                  <button class="save-btn" style="display: none;" onclick="saveRow(this)">Save</button>
+              </td>
+          </tr>
+          <tr>
+              <td>7</td>
+              <td>Fotengapara</td>
+              <td>2023</td>
+              <td>Champion</td>
+              <td>
+                  <button class="edit-btn" onclick="editRow(this)">Edit</button>
+                  <button class="save-btn" style="display: none;" onclick="saveRow(this)">Save</button>
+              </td>
+          </tr>
+          <tr>
+              <td>8</td>
+              <td>Station</td>
+              <td>2022</td>
+              <td>Champion</td>
+              <td>
+                  <button class="edit-btn" onclick="editRow(this)">Edit</button>
+                  <button class="save-btn" style="display: none;" onclick="saveRow(this)">Save</button>
+              </td>
+          </tr>
+          <tr>
+              <td>9</td>
+              <td>Palpara</td>
+              <td>2017</td>
+              <td>Champion</td>
+              <td>
+                  <button class="edit-btn" onclick="editRow(this)">Edit</button>
+                  <button class="save-btn" style="display: none;" onclick="saveRow(this)">Save</button>
+              </td>
+          </tr>
+          <tr>
+              <td>10</td>
+              <td>Borgacha</td>
+              <td>2021</td>
+              <td>Champion</td>
+              <td>
+                  <button class="edit-btn" onclick="editRow(this)">Edit</button>
+                  <button class="save-btn" style="display: none;" onclick="saveRow(this)">Save</button>
+              </td>
+          </tr>
+          <tr>
+              <td>11</td>
+              <td>Alaipur</td>
+              <td>2021</td>
+              <td>Champion</td>
+              <td>
+                  <button class="edit-btn" onclick="editRow(this)">Edit</button>
+                  <button class="save-btn" style="display: none;" onclick="saveRow(this)">Save</button>
+              </td>
+          </tr>
+          <tr>
+              <td>12</td>
+              <td>Palpara</td>
+              <td>2022</td>
+              <td>Runners-Up</td>
+              <td>
+                  <button class="edit-btn" onclick="editRow(this)">Edit</button>
+                  <button class="save-btn" style="display: none;" onclick="saveRow(this)">Save</button>
+              </td>
+          </tr>
+      </tbody>
+  </table>
+  
+  <script>
+      function editRow(button) {
+          var row = button.parentNode.parentNode; 
+          for (var i = 1; i < row.cells.length - 1; i++) { 
+              var cell = row.cells[i];
+              var input = document.createElement("input");
+              input.value = cell.innerText; 
+              cell.innerHTML = ""; 
+              cell.appendChild(input); 
+          }
+          button.style.display = "none"; 
+          row.cells[row.cells.length - 1].getElementsByClassName("save-btn")[0].style.display = ""; 
+      }
+  
+      function saveRow(button) {
+          var row = button.parentNode.parentNode; 
+          for (var i = 1; i < row.cells.length - 1; i++) { 
+              var cell = row.cells[i];
+              var input = cell.getElementsByTagName("input")[0]; 
+              cell.innerHTML = input.value; 
+          }
+          button.style.display = "none"; 
+          row.cells[row.cells.length - 1].getElementsByClassName("edit-btn")[0].style.display = "";
+      }
+  </script>
+
+
+
+
+
+  </section>
+
+  <section id="players">
+    <h2 style="background-color: rgb(96, 156, 53); color: rgb(0, 0, 0); padding: 10px; 
+    margin: 0 auto; 
+    width: 40%; 
+    border-radius: 5px; 
+    text-align: center;">Our Players</h2>
+    
+    <!-- <input type="text" id="searchInput" onkeyup="searchPlayers()" placeholder="Search for names.." style="margin: 10px auto; display: block; width: 40%; padding: 10px;"> -->
+    <input type="text" id="searchInput" onkeyup="searchPlayers()" placeholder="Search for names.." 
+    style="margin: 10px auto; display: block; width: 40%; padding: 10px; border: 2px solid red;">
+
+    <table id="playerTable" border="1" cellpadding="10" cellspacing="0" style="margin: 0 auto;">
+      <thead>
+          <tr>
+              <th>Name</th>
+              <th>Photo</th> 
+              <th>Phone Number</th>
+              <th>Position</th>
+          </tr>
+      </thead>
+      <tbody>
+          <tr>
+              <td>Alif Hossain Talha</td>
+              <td><img src="profile/talha.jpg" alt="Alif Hossain Talha" style="width: 50px; height: 50px; border-radius: 50%;"></td> <!-- Profile Photo -->
+              <td>01791840715</td>
+              <td>Batsman</td>
+          </tr>
+          <tr>
+              <td>Shakkor Alam</td>
+              <td><img src="profile/shakkor.jpg" alt="Shakkor Alam" style="width: 50px; height: 50px; border-radius: 50%;"></td> 
+              <td>01796948670</td>
+              <td>All-Rounder</td>
+          </tr>
+          <tr>
+              <td>Utsho Paul</td>
+              <td><img src="profile/uthso.jpg" alt="Utsho Paul" style="width: 50px; height: 50px; border-radius: 50%;"></td> 
+              <td>01724921473</td>
+              <td>Batsman</td>
+          </tr>
+          <tr>
+              <td>Toukir Ahmed</td>
+              <td><img src="profile/toukir.jpg" alt="Toukir Ahmed" style="width: 50px; height: 50px; border-radius: 50%;"></td> 
+              <td>01733414465</td>
+              <td>All-Rounder</td>
+          </tr>
+          <tr>
+              <td>Alamin</td>
+              <td><img src="profile/alamin.jpg" alt="Alamin" style="width: 50px; height: 50px; border-radius: 50%;"></td> 
+              <td>01879117735</td>
+              <td>Batsman</td>
+          </tr>
+          <tr>
+              <td>Alamin2</td>
+              <td><img src="profile/alamin1.jpg" alt="Alamin2" style="width: 50px; height: 50px; border-radius: 50%;"></td> 
+              <td>01782162070</td>
+              <td>All-Rounder</td>
+          </tr>
+          <tr>
+              <td>Arik</td>
+              <td><img src="profile/arik.jpg" alt="Arik" style="width: 50px; height: 50px; border-radius: 50%;"></td>
+              <td>01725945645</td>
+              <td>Batsman</td>
+          </tr>
+          <tr>
+              <td>Rezve</td>
+              <td><img src="profile/rezve.jpg" alt="Rezve" style="width: 50px; height: 50px; border-radius: 50%;"></td> 
+              <td>01305824257</td>
+              <td>Batsman</td>
+          </tr>
+          <tr>
+              <td>Alvi</td>
+              <td><img src="profile/alvi.jpg" alt="Alvi" style="width: 50px; height: 50px; border-radius: 50%;"></td> 
+              <td>0195485685</td>
+              <td>Bowler</td>
+          </tr>
+          <tr>
+              <td>Piash</td>
+              <td><img src="profile/piash.jpg" alt="Piash" style="width: 50px; height: 50px; border-radius: 50%;"></td> 
+              <td>01634591610</td>
+              <td>Batsman</td>
+          </tr>
+          <tr>
+              <td>Zihad</td>
+              <td><img src="profile/zihad.jpg" alt="Zihad" style="width: 50px; height: 50px; border-radius: 50%;"></td> 
+              <td>0158888888</td>
+              <td>Fielder</td>
+          </tr>
+          <tr>
+              <td>Sany</td>
+              <td><img src="profile/sany.jpg" alt="Sany" style="width: 50px; height: 50px; border-radius: 50%;"></td> 
+              <td>01588478596</td>
+              <td>Fielder</td>
+          </tr>
+          <tr>
+              <td>Siam</td>
+              <td><img src="path/to/siam-photo.jpg" alt="Siam" style="width: 50px; height: 50px; border-radius: 50%;"></td> 
+              <td>01721212121</td>
+              <td>Batsman</td>
+          </tr>
+          <tr>
+              <td>Nadim</td>
+              <td><img src="path/to/nadim-photo.jpg" alt="Nadim" style="width: 50px; height: 50px; border-radius: 50%;"></td> 
+              <td>01325896314</td>
+              <td>Bowler</td>
+          </tr>
+          <tr>
+              <td>Abid</td>
+              <td><img src="path/to/abid-photo.jpg" alt="Abid" style="width: 50px; height: 50px; border-radius: 50%;"></td> 
+              <td>01425874198</td>
+              <td>Batsman</td>
+          </tr>
+          <tr>
+              <td>Nahid</td>
+              <td><img src="path/to/nahid-photo.jpg" alt="Nahid" style="width: 50px; height: 50px; border-radius: 50%;"></td> 
+              <td>01587412369</td>
+              <td>Batsman</td>
+          </tr>
+          <tr>
+              <td>Shepon</td>
+              <td><img src="path/to/shepon-photo.jpg" alt="Shepon" style="width: 50px; height: 50px; border-radius: 50%;"></td> 
+              <td>01452859614</td>
+              <td>Batsman</td>
+          </tr>
+          <tr>
+              <td>Tanzim</td>
+              <td><img src="profile/tanjim.jpg" alt="Tanzim" style="width: 50px; height: 50px; border-radius: 50%;"></td> 
+              <td>01814789632</td>
+              <td>Batsman</td>
+          </tr>
+          <tr>
+              <td>Akash</td>
+              <td><img src="profile/akash.jpg" alt="Akash" style="width: 50px; height: 50px; border-radius: 50%;"></td> 
+              <td>01436985214</td>
+              <td>Batsman</td>
+          </tr>
+          <tr>
+              <td>Shammo</td>
+              <td><img src="profile/shammo.jpg" alt="Shammo" style="width: 50px; height: 50px; border-radius: 50%;"></td> 
+              <td>01436985214</td>
+              <td>Batsman</td>
+          </tr>
+          <tr>
+              <td>Mahin</td>
+              <td><img src="path/to/mahin-photo.jpg" alt="Mahin" style="width: 50px; height: 50px; border-radius: 50%;"></td>
+              <td>01814789632</td>
+              <td>Batsman</td>
+          </tr>
+          <tr>
+              <td>Shimul</td>
+              <td><img src="path/to/shimul-photo.jpg" alt="Shimul" style="width: 50px; height: 50px; border-radius: 50%;"></td> 
+              <td>01452859614</td>
+              <td>Batsman</td>
+          </tr>
+          <tr>
+              <td>Shafin</td>
+              <td><img src="profile/shafin.jpg" alt="Shafin" style="width: 50px; height: 50px; border-radius: 50%;"></td> 
+              <td>01814789632</td>
+              <td>Batsman</td>
+          </tr>
+
+      </tbody>
+  </table>
+  
+</section>
+
+<script>
+    function searchPlayers() {
+       
+        var input, filter, table, tr, td, i, txtValue;
+        input = document.getElementById("searchInput");
+        filter = input.value.toUpperCase();
+        table = document.getElementById("playerTable");
+        tr = table.getElementsByTagName("tr");
+
+      
+        for (i = 1; i < tr.length; i++) {
+            td = tr[i].getElementsByTagName("td")[0]; 
+            if (td) {
+                txtValue = td.textContent || td.innerText;
+                
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                    tr[i].style.display = ""; 
+                } else {
+                    tr[i].style.display = "none"; 
+                }
+            }       
+        }
+    }
+</script>
+
+
+  <section id="register">
+    <h2 style="background-color: rgb(74, 164, 161); color: rgb(226, 12, 12);padding: 10px; 
+    margin: 0 auto; 
+    width: 40%; 
+    border-radius: 5px; 
+    text-align: center; ">Register</h2><br><br>
+    <form id="registrationForm">
+      <label for="firstname"><b>First Name:</b></label>
+      <input type="text" id="firstname" placeholder="Enter your first name" required><br>
+
+      <label for="lastname"><b>Last Name:</b></label>
+      <input type="text" id="lastname" placeholder="Enter your last name" required><br>
+
+      <label for="email"><b>Email:</b></label>
+      <input type="email" id="email" placeholder="Enter your email address" required><br>
+
+      <label for="phone"><b>Phone Number:</b></label>
+      <input type="tel" id="phone" placeholder="Enter your phone number" required><br>
+
+      <label for="position"><b> Position:</b></label>
+      <input type="text" id="position" placeholder="Enter your playing position" required><br>
+
+      <label for="post"><b>Post:</b></label>
+      <input type="text" id="post" placeholder="Enter your role (e.g., Captain)" required><br>
+
+      <label for="jursyNumber"><b> Jersey Number:</b></label>
+      <input type="number" id="jursyNumber" placeholder="Enter your jersey number" required><br>
+
+      <button type="button" onclick="generatePDF()">Submit & Download PDF</button>
+    </form>
+  </section>
+
+  <section id="photos">
+    <h2 style="background-color: rgb(96, 156, 53); color: rgb(0, 0, 0);padding: 10px; 
+    margin: 0 auto; 
+    width: 40%; 
+    border-radius: 5px; 
+    text-align: center; ">Club Photos</h2><br><br>
+    <div id="photoGallery">
+      <img id="currentPhoto" src="image/photo.jpg" alt="Club Photo 1" style="width:80%; max-width:200px;">
+      <img id="currentPhoto" src="image/photo1.jpg" alt="Club Photo 1" style="width:80%; max-width:200px;">
+      <img id="currentPhoto" src="image/photo2.jpg" alt="Club Photo 1" style="width:80%; max-width:275px;">
+      <img id="currentPhoto" src="image/photo3.jpg" alt="Club Photo 1" style="width:80%; max-width:200px;">
+      <img id="currentPhoto" src="image/photo4.jpg" alt="Club Photo 1" style="width:80%; max-width:200px;">
+      <img id="currentPhoto" src="image/photo5.jpg" alt="Club Photo 1" style="width:80%; max-width:200px;">
+      <img id="currentPhoto" src="image/photo6.jpg" alt="Club Photo 1" style="width:80%; max-width:200px;">
+      <img id="currentPhoto" src="image/photo7.jpg" alt="Club Photo 1" style="width:80%; max-width:200px;">
+      <img id="currentPhoto" src="image/photo8.jpg" alt="Club Photo 1" style="width:80%; max-width:200px;">
+      <img id="currentPhoto" src="image/photo9.jpg" alt="Club Photo 1" style="width:80%; max-width:200px;">
+      <img id="currentPhoto" src="image/photo10.jpg" alt="Club Photo 1" style="width:80%; max-width:200px;">
+      <img id="currentPhoto" src="image/photo11.jpg" alt="Club Photo 1" style="width:80%; max-width:200px;">
+      <img id="currentPhoto" src="image/photo12.jpg" alt="Club Photo 1" style="width:80%; max-width:200px;">
+      <img id="currentPhoto" src="image/photo13.jpg" alt="Club Photo 1" style="width:80%; max-width:200px;">
+      <img id="currentPhoto" src="image/photo14.jpg" alt="Club Photo 1" style="width:80%; max-width:200px;">
+      <img id="currentPhoto" src="image/photo15.jpg" alt="Club Photo 1" style="width:80%; max-width:200px;">
+      <img id="currentPhoto" src="image/photo16.jpg" alt="Club Photo 1" style="width:80%; max-width:270px;">
+      <img id="currentPhoto" src="image/photo17.jpg" alt="Club Photo 1" style="width:80%; max-width:200px;">
+
+
+      <br>
+      <button onclick="prevPhoto()">Previous</button>
+      <button onclick="nextPhoto()">Next</button>
+    </div>
+    
+  </section>
+
+
+  <!-- Contact Section -->
+  <section id="contact">
+    <h2 style="background-color: rgb(38, 187, 130); color: rgb(0, 0, 0);padding: 10px; 
+    margin: 0 auto; 
+    width: 40%; 
+    border-radius: 5px; 
+    text-align: center;">Contact Us</h2><br>
+    <p style="color: rgb(49, 49, 161);"><b> You would like to get in touch with us, please find our contact details below: </b></p><br>
+
+    <ul style="list-style: none;">
+      <li style="margin-bottom: 10px;">
+        <i class="fab fa-facebook" style="color: #3b5998;"></i>
+        <strong>Facebook Page:</strong> <a href="https://www.facebook.com/fcfnatore" target="_blank">Visit our Facebook Page</a>
+      </li><br>
+      <li style="margin-bottom: 10px;">
+        <i class="fas fa-map-marker-alt" style="color: red;"></i>
+        <strong>Location:</strong> Mirpara, Natore, Bangladesh
+      </li><br>
+      <li style="margin-bottom: 10px;">
+        <i class="fas fa-map" style="color: green;"></i>
+        <strong>Map:</strong> <a href="https://maps.app.goo.gl/BTNeU42VtoZZqTP3A" target="_blank">Check our Google Map</a>
+      </li><br>
+      <li style="margin-bottom: 10px;">
+        <i class="fas fa-phone" style="color: #1e90ff;"></i>
+        <strong>Contact Number:</strong> +880 1791840715 , 01796948670
+      </li><br>
+    </ul>
+
+    <img src="logo.jpg" alt="FCF Sports Club Logo" style="width: 100px; height: 100px; border-radius: 50%; display: block; margin: 20px auto;">
+</section>
+
+
+  <script src="js/script.js"></script>
+  <script>
+   
+    const navbarItems = document.querySelectorAll('#navbar li a');
+
+    navbarItems.forEach(item => {
+      item.addEventListener('click', function() {
+       
+        navbarItems.forEach(i => i.classList.remove('active'));
+      
+        this.classList.add('active');
+      });
+    });
+
+    const photos = ["images/photo1.jpg", "images/photo2.jpg", "images/photo3.jpg"]; // Add paths to your photos
+    let currentPhotoIndex = 0;
+
+    function showPhoto(index) {
+      const photo = document.getElementById('currentPhoto');
+      photo.src = photos[index];
+    }
+
+    function nextPhoto() {
+      currentPhotoIndex = (currentPhotoIndex + 1) % photos.length;
+      showPhoto(currentPhotoIndex);
+    }
+
+    function prevPhoto() {
+      currentPhotoIndex = (currentPhotoIndex - 1 + photos.length) % photos.length;
+      showPhoto(currentPhotoIndex);
+    }
+  </script>
+</body>
+</html>
